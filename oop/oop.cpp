@@ -3,6 +3,7 @@
 #include <cstdint>
 using namespace std;
 class Power
+
 {
 private:
 	int m_a = 5;
