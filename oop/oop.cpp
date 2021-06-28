@@ -42,7 +42,51 @@ public:
 	}
 };
 
-
+class Stack
+{
+private:
+	int myarr[10];
+	int stacklendth;
+public:
+	void reset()
+	{
+		stacklendth = 0;
+	}
+	bool push(int var)
+	{
+		myarr[stacklendth]=var;
+		if (stacklendth == 10)
+		{
+			return false;
+		}
+		else
+		{
+			myarr[stacklendth] = var;
+			++stacklendth ;
+			return true;
+		}
+	}
+	void pop()
+	{
+		if (stacklendth == 0)
+		{
+			cout << "stack empty" << endl;
+		}
+		else
+		{
+			--stacklendth;
+		}
+	}
+	void print()
+	{
+		cout << "(";
+		for (int i = 0; i < stacklendth; ++i)
+		{
+			cout << myarr[i];
+		}
+		cout << ")" << endl;
+	}
+};
 int main()
 {
 	Power power;
@@ -65,6 +109,21 @@ int main()
 	RGBA rgba(red,green,blue,alpha);
 	rgba.print();
 
+	Stack stack;
+	stack.reset();
+	stack.print();
+
+	stack.push(3);
+	stack.push(7);
+	stack.push(5);
+	stack.print();
+
+	stack.pop();
+	stack.print();
+
+	stack.pop();
+	stack.pop();
+	stack.print();
 
 	return 0;
 }
