@@ -23,16 +23,22 @@ private:
 	uint8_t m_red = 0;
 	uint8_t m_green = 0;
 	uint8_t m_blue = 0;
-	uint8_t m_alpha;
+	uint8_t m_alpha =255;
 public:
-	RGBA(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255) :m_red(red), m_green(green), m_blue(blue), m_alpha(alpha)
+	RGBA(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha) :m_red(red), m_green(green), m_blue(blue), m_alpha(alpha)
 	{
-		cout << "constructor" << endl;
-		cout << "red" << m_alpha;
+
+	}
+	RGBA()
+	{
+
 	}
 	void print()
 	{
-		cout << "red" << static_cast<uint16_t>(m_alpha);
+		cout << "red:" << static_cast<uint16_t>(m_red)<<endl;
+		cout << "green:" << static_cast<uint16_t>(m_green)<<endl;
+		cout << "blue:" << static_cast<uint16_t>(m_blue) << endl;
+		cout << "alpha:" << static_cast<uint16_t>(m_alpha) << endl;
 	}
 };
 
@@ -42,8 +48,23 @@ int main()
 	Power power;
 	power.calculate();
 
-	RGBA rgba(0, 0, 0);
+	int red, green, blue, alpha;
+	RGBA color;
+	color.print();
+
+
+	cout << "enter number red" << endl;
+	cin >> red;
+	cout << "enter number green" << endl;
+	cin >> green;
+	cout << "enter number blue" << endl;
+	cin >> blue;
+	cout << "enter number alpha" << endl;
+	cin >> alpha;
+
+	RGBA rgba(red,green,blue,alpha);
 	rgba.print();
+
 
 	return 0;
 }
